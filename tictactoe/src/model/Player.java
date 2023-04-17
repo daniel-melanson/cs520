@@ -1,22 +1,19 @@
 package model;
 
-
-public enum Player
-{
+public enum Player {
     PLAYER_1(1), PLAYER_2(2);
 
     private int id;
 
-    
     private Player(int id) {
-	this.id = id;
+        this.id = id;
     }
 
     public int getID() {
-	return this.id;
+        return this.id;
     }
-    
+
     public String toString() {
-	return "" + this.getID();
+        return "" + this.getID();
     }
 }

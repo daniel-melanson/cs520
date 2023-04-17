@@ -1,16 +1,21 @@
 package view;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JTextArea;
-import javax.swing.JPanel;
-import java.awt.*;
-import java.awt.event.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.RowGameModel;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
 import controller.RowGameController;
+import model.RowGameModel;
 
 /**
  * The RowGameGUI class is applying the Composite design pattern.
@@ -24,7 +29,6 @@ public class RowGameGUI implements View {
     private List<View> viewList = new ArrayList<View>();
     public JButton reset = new JButton("Reset");
 
-
     /**
      * Creates a new game initializing the GUI.
      */
@@ -34,7 +38,7 @@ public class RowGameGUI implements View {
         gui.setResizable(true);
 
         JPanel gamePanel = new JPanel(new FlowLayout());
-        JPanel game = new JPanel(new GridLayout(3,3));
+        JPanel game = new JPanel(new GridLayout(3, 3));
         gamePanel.add(game, BorderLayout.CENTER);
 
         JPanel options = new JPanel(new FlowLayout());
@@ -46,8 +50,8 @@ public class RowGameGUI implements View {
         gui.add(options, BorderLayout.CENTER);
         gui.add(messages, BorderLayout.SOUTH);
 
-	GameStatusView gameStatusView = new GameStatusView(messages);
-	addView(gameStatusView);
+        GameStatusView gameStatusView = new GameStatusView(messages);
+        addView(gameStatusView);
 
         reset.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -55,30 +59,30 @@ public class RowGameGUI implements View {
             }
         });
 
-	this.gameBoardView = new GameBoardView(game, controller);
-	addView(this.gameBoardView);
+        this.gameBoardView = new GameBoardView(game, controller);
+        addView(this.gameBoardView);
     }
 
     public BlockIndex getBlockIndex(JButton block) {
-	return this.gameBoardView.getBlockIndex(block);
+        return this.gameBoardView.getBlockIndex(block);
     }
 
     public void addView(View view) {
-	// For the Composite API
-	
-	// Perform input validation
-	if (view == null) {
-	    throw new IllegalArgumentException("The view must be non-null.");
-	}
+        // For the Composite API
 
-	this.viewList.add(view);
+        // Perform input validation
+        if (view == null) {
+            throw new IllegalArgumentException("The view must be non-null.");
+        }
+
+        this.viewList.add(view);
     }
 
     public void update(RowGameModel model) {
-	// For the Composite API
-	
-	for (View currentView : this.viewList) {
-	    currentView.update(model);
-	} // end for currentView
+        // For the Composite API
+
+        for (View currentView : this.viewList) {
+            currentView.update(model);
+        } // end for currentView
     }
 }
