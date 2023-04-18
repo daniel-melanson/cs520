@@ -28,35 +28,14 @@ public class GameBoardView implements View {
                 blocks[row][column] = new JButton();
                 blocks[row][column].setPreferredSize(new Dimension(75, 75));
                 game.add(blocks[row][column]);
+                final BlockIndex blockIndex = new BlockIndex(row, column);
                 blocks[row][column].addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
-                        controller.move((JButton) e.getSource());
+                        controller.move(blockIndex);
                     }
                 });
             }
         }
-    }
-
-    /**
-     * Returns the BlockIndex (pair of row and column) of the given block
-     * if it is part of this game board and returns null otherwise.
-     *
-     * @param block The block of interest
-     * @return The BlockIndex (pair of row and column) of the given block
-     *         if it is part of this game board and null otherwise
-     */
-    public BlockIndex getBlockIndex(JButton block) {
-        for (int row = 0; row < 3; row++) {
-            for (int column = 0; column < 3; column++) {
-                if (this.blocks[row][column] == block) {
-                    // Found
-                    return new BlockIndex(row, column);
-                }
-            } // end for column
-        } // end for row
-
-        // Not found
-        return null;
     }
 
     /**

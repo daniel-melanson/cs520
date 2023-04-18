@@ -63,10 +63,6 @@ public class RowGameGUI implements View {
         addView(this.gameBoardView);
     }
 
-    public BlockIndex getBlockIndex(JButton block) {
-        return this.gameBoardView.getBlockIndex(block);
-    }
-
     public void addView(View view) {
         // For the Composite API
 

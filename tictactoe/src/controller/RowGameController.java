@@ -33,11 +33,10 @@ public class RowGameController {
 	 *
 	 * @param block The block to be moved to by the current player
 	 */
-	public void move(JButton block) {
+	public void move(BlockIndex blockIndex) {
 		// The Controller first manipulates the Model.
 		gameModel.movesLeft--;
 
-		BlockIndex blockIndex = gameView.getBlockIndex(block);
 		if (gameModel.getPlayer().equals(Player.PLAYER_1)) {
 			// Check whether player 1 won
 			if (blockIndex.matches(0, 0)) {
