@@ -26,8 +26,8 @@ public class TestExample {
 
     @Test
     public void testNewGame() {
-        assertEquals (Player.PLAYER_1, game.gameModel.getPlayer());
-        assertEquals (9, game.gameModel.movesLeft);
+        assertEquals(Player.PLAYER_1, game.gameModel.getPlayer());
+        assertEquals(9, game.gameModel.movesLeft);
     }
 
     @Test(expected = IllegalArgumentException.class)
