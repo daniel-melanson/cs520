@@ -24,7 +24,7 @@ import model.RowGameModel;
 public class RowGameGUI implements View {
     public JFrame gui = new JFrame("Tic Tac Toe");
     public RowGameModel gameModel = new RowGameModel();
-    private GameResetView gameResetView;
+    private GameUndoView gameUndoView;
     private GameBoardView gameBoardView;
     /** For the Composite design pattern, the RowGameGUI is the Composite */
     private List<View> viewList = new ArrayList<View>();
@@ -54,9 +54,9 @@ public class RowGameGUI implements View {
         GameStatusView gameStatusView = new GameStatusView(messages);
         addView(gameStatusView);
 
-        GameResetView gameResetView = new GameResetView(controller);
-        options.add(gameResetView);
-        addView(gameResetView);
+        gameUndoView = new GameUndoView(controller);
+        options.add(gameUndoView);
+        addView(gameUndoView);
 
         reset.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {

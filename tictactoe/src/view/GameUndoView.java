@@ -7,8 +7,15 @@ import java.awt.event.ActionListener;
 import controller.RowGameController;
 import model.RowGameModel;
 
-public class GameResetView extends JButton implements View {
-    public GameResetView(RowGameController controller) {
+/**
+ * The GameUndoView class undos the last move made when clicked and visualizes
+ * whether a move can be undone or not.
+ *
+ * NOTE) For the Composite design pattern, this class is-a Component (i.e.
+ * View).
+ */
+public class GameUndoView extends JButton implements View {
+    public GameUndoView(RowGameController controller) {
         super("Undo");
         this.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
