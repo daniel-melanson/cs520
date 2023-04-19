@@ -24,7 +24,7 @@ import model.RowGameModel;
 public class RowGameGUI implements View {
     public JFrame gui = new JFrame("Tic Tac Toe");
     public RowGameModel gameModel = new RowGameModel();
-    private GameUndoView gameUndoView;
+    public GameUndoView gameUndoView;
     private GameBoardView gameBoardView;
     /** For the Composite design pattern, the RowGameGUI is the Composite */
     private List<View> viewList = new ArrayList<View>();

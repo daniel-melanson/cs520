@@ -1,3 +1,5 @@
+import static org.junit.Assert.assertEquals;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -35,6 +37,11 @@ public class TestControls {
     public void testProhibitedUndo() {
         // 6. If the user has not done at least one move, the user is not permitted to
         // undo.
+        game.move(new BlockIndex(0, 0));
+
+        game.undoMove();
+        
+        assertEquals(game.gameView.gameUndoView.isEnabled(), false);
     }
 
     @Test
