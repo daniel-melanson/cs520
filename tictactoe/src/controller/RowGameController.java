@@ -461,6 +461,7 @@ public class RowGameController {
 		gameModel.setPlayer(Player.PLAYER_1);
 		gameModel.movesLeft = 9;
 		gameModel.setFinalResult(null);
+		gameModel.movesMade.clear();
 
 		// The Controller then updates the View.
 		gameView.update(gameModel);
@@ -476,9 +477,7 @@ public class RowGameController {
 		// if the game is finished, set the final result to null and makes empty blocks
 		// a legal move
 		if (gameModel.getFinalResult() != null) {
-			while (!gameModel.movesMade.empty()) {
-				gameModel.movesMade.pop();
-			}
+			gameModel.movesMade.clear();
 		}
 
 		gameModel.movesLeft++;
