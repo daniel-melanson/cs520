@@ -30,5 +30,9 @@ public class TestMove {
     @Test
     public void testLegalMoveUpdate() {
         // 2. After performing a legal move, the game is updated appropriately
+        game.move(new BlockIndex(0, 0));
+        
+        assertEquals(Player.PLAYER_2, game.gameModel.getPlayer());
+        assertEquals(8, game.gameModel.movesLeft);
     }
 }
