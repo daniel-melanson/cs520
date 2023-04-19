@@ -1,11 +1,8 @@
-import static org.junit.Assert.assertEquals;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import controller.RowGameController;
-import model.Player;
 import view.BlockIndex;
 
 public class TestControls {
@@ -20,10 +17,16 @@ public class TestControls {
     public void tearDown() {
         game = null;
     }
-    
+
     @Test
     public void testReset() {
         // 5. After resetting the app, the game has the expected initial configuration
+
+        game.move(new BlockIndex(0, 0));
+        game.move(new BlockIndex(1, 0));
+        game.move(new BlockIndex(2, 0));
+
+        game.gameModel.assertInitialState();
     }
 
     @Test
@@ -40,11 +43,6 @@ public class TestControls {
 
         game.undoMove();
 
-        assertEquals(Player.PLAYER_1, game.gameModel.getPlayer());
-        assertEquals(9, game.gameModel.movesLeft);
-        assertEquals(game.gameModel.movesMade.empty(), true);
-        
-        assertEquals(game.gameModel.blocksData[0][0].getIsLegalMove(), true);
-        assertEquals(game.gameModel.blocksData[0][0].getContents(), "");
+        game.gameModel.assertInitialState();
     }
 }
