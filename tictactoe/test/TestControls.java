@@ -30,7 +30,7 @@ public class TestControls {
 
         game.resetGame();
 
-        game.gameModel.assertInitialState();
+        TestUtility.assertInitialState(game);
     }
 
     @Test
@@ -52,6 +52,6 @@ public class TestControls {
 
         game.undoMove();
 
-        game.gameModel.assertInitialState();
+        TestUtility.assertInitialState(game);
     }
 }

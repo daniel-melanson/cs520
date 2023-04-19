@@ -32,7 +32,6 @@ public class RowGameModel {
             } // end for col
         } // end for row
         // 
-        this.assertInitialState();
     }
 
     public Player getPlayer() {
@@ -54,16 +53,5 @@ public class RowGameModel {
 
     public void setFinalResult(String finalResult) {
         this.finalResult = finalResult;
-    }
-    
-    public void assertInitialState() {
-        assert this.movesLeft == 9;
-        assert this.player == Player.PLAYER_1;
-
-        for (int i = 0; i < this.blocksData.length; i++) {
-            for (int j = 0; j < this.blocksData[i].length; j++) {
-                this.blocksData[i][j].assertInitialState();
-            }
-        }
     }
 }
