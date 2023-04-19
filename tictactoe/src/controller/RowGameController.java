@@ -32,6 +32,12 @@ public class RowGameController {
 	 * @param block The block to be moved to by the current player
 	 */
 	public void move(BlockIndex blockIndex) {
+		int row = blockIndex.getRow();
+		int col = blockIndex.getColumn();
+
+		if (row < 0 || row > 2 || col < 0 || col > 2)
+			return;
+
 		// The Controller first manipulates the Model.
 		gameModel.movesLeft--;
 		gameModel.movesMade.push(blockIndex);
