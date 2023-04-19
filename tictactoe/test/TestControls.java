@@ -26,6 +26,8 @@ public class TestControls {
         game.move(new BlockIndex(1, 0));
         game.move(new BlockIndex(2, 0));
 
+        game.resetGame();
+
         game.gameModel.assertInitialState();
     }
 
