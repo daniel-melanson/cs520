@@ -1,8 +1,12 @@
+import static org.junit.Assert.assertEquals;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import controller.RowGameController;
+import model.Player;
+import view.BlockIndex;
 
 public class TestMove {
     private RowGameController game;
