@@ -20,6 +20,11 @@ public class TestMove {
     @Test
     public void testIllegalMoveNoUpdate() {
         // 1. After performing an illegal move, the game is not updated.
+        game.move(new BlockIndex(-1, -1));
+        game.gameModel.assertInitialState();
+
+        game.move(new BlockIndex(3, 3));
+        game.gameModel.assertInitialState();
     }
 
     @Test

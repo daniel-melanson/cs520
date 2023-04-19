@@ -34,6 +34,7 @@ public class RowBlockModel {
 
         this.game = game;
         this.reset();
+        this.assertInitialState();
     }
 
     public RowGameModel getGame() {
@@ -76,5 +77,10 @@ public class RowBlockModel {
     public void reset() {
         this.contents = "";
         this.isLegalMove = false;
+    }
+
+    public void assertInitialState() {
+        assert this.contents.equals("");
+        assert this.isLegalMove == true; 
     }
 }
