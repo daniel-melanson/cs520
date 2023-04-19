@@ -1,25 +1,10 @@
 import static org.junit.Assert.assertEquals;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
-import controller.RowGameController;
 import view.BlockIndex;
 
-public class TestGameEnd {
-    private RowGameController game;
-
-    @Before
-    public void setUp() {
-        game = new RowGameController();
-    }
-
-    @After
-    public void tearDown() {
-        game = null;
-    }
-
+public class TestGameEnd extends TestGame {
     private void move(int r, int c) {
         game.move(new BlockIndex(r, c));
     }
