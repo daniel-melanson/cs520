@@ -1,7 +1,5 @@
 package controller;
 
-import javax.swing.JButton;
-
 import model.Player;
 import model.RowGameModel;
 import view.BlockIndex;
