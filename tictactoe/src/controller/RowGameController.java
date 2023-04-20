@@ -1,7 +1,5 @@
 package controller;
 
-import javax.swing.JButton;
-
 import model.Player;
 import model.RowGameModel;
 import view.BlockIndex;
@@ -34,6 +32,12 @@ public class RowGameController {
 	 * @param blockIndex The block to be moved to by the current player
 	 */
 	public void move(BlockIndex blockIndex) {
+		int row = blockIndex.getRow();
+		int col = blockIndex.getColumn();
+
+		if (row < 0 || row > 2 || col < 0 || col > 2 || !gameModel.blocksData[row][col].getIsLegalMove())
+			return;
+
 		// The Controller first manipulates the Model.
 		gameModel.movesLeft--;
 		gameModel.movesMade.push(blockIndex);
@@ -463,6 +467,7 @@ public class RowGameController {
 		gameModel.setPlayer(Player.PLAYER_1);
 		gameModel.movesLeft = 9;
 		gameModel.setFinalResult(null);
+		gameModel.movesMade.clear();
 
 		// The Controller then updates the View.
 		gameView.update(gameModel);
@@ -478,9 +483,7 @@ public class RowGameController {
 		// if the game is finished, set the final result to null and makes empty blocks
 		// a legal move
 		if (gameModel.getFinalResult() != null) {
-			while (!gameModel.movesMade.empty()) {
-				gameModel.movesMade.pop();
-			}
+			gameModel.movesMade.clear();
 		}
 
 		gameModel.movesLeft++;
