@@ -31,7 +31,7 @@ public class RowGameController {
 	/**
 	 * Moves the current player into the given block.
 	 *
-	 * @param block The block to be moved to by the current player
+	 * @param blockIndex The block to be moved to by the current player
 	 */
 	public void move(BlockIndex blockIndex) {
 		// The Controller first manipulates the Model.
