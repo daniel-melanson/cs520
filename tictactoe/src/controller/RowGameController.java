@@ -35,7 +35,7 @@ public class RowGameController {
 		int row = blockIndex.getRow();
 		int col = blockIndex.getColumn();
 
-		if (row < 0 || row > 2 || col < 0 || col > 2)
+		if (row < 0 || row > 2 || col < 0 || col > 2 || !gameModel.blocksData[row][col].getIsLegalMove())
 			return;
 
 		// The Controller first manipulates the Model.
