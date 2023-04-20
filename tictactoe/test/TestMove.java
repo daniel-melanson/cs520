@@ -14,6 +14,12 @@ public class TestMove extends TestGame {
 
         game.move(new BlockIndex(3, 3));
         TestGame.assertInitialState(game);
+        
+        game.move(new BlockIndex(0, 0));
+        game.move(new BlockIndex(0, 0));
+        
+        assertEquals(8, game.gameModel.movesLeft);
+        assertEquals(1, game.gameModel.movesMade.size());
     }
 
     @Test
